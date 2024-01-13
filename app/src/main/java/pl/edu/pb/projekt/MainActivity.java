@@ -1,4 +1,4 @@
-package pl.edu.pb.mobilne_projekt;
+package pl.edu.pb.projekt;
 
 import androidx.appcompat.app.AppCompatActivity;
 

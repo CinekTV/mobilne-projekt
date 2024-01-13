@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'pl.edu.pb.mobilne_projekt'
+    namespace 'pl.edu.pb.projekt'
     compileSdk 33
 
     defaultConfig {
-        applicationId "pl.edu.pb.mobilne_projekt"
+        applicationId "pl.edu.pb.projekt"
         minSdk 30
         targetSdk 33
         versionCode 1

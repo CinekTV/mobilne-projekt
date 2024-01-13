@@ -1,4 +1,4 @@
-package com.example.anilist1;
+package pl.edu.pb.mobilne_projekt;
 
 import androidx.appcompat.app.AppCompatActivity;
 

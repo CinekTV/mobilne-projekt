@@ -1,4 +1,4 @@
-package com.example.anilist1;
+package pl.edu.pb.mobilne_projekt;
 
 import org.junit.Test;
 

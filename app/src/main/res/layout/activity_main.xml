@@ -37,14 +37,17 @@
                     />
 
                 <EditText
+                    android:id="@+id/Search_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:hint="Wyszukaj serial"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
                     android:backgroundTint="#fff"
                     android:layout_marginRight="20dp"
                     android:textSize="16sp"/>
-                
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

@@ -4,9 +4,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
                 return true; // Zwróć true, aby zatrzymać obsługę zdarzenia klawisza Enter
             }
             return false;
+        });
+        configureNextButton();
+    }
+
+    private void configureNextButton(){
+        Button nextbutton = (Button) findViewById(R.id.changeview);
+        nextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Localization.class));
+            }
         });
     }
 

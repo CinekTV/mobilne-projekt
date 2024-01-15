@@ -69,9 +69,20 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
         List<ApiResponse.Anime> animeList = result.getData();
         for (ApiResponse.Anime anime : animeList) {
             int malId = anime.getMalId();
-            informacja += malId+" , ";
+            List<ApiResponse.Title> titles = anime.getTitles();
+            String title = "";
+            for(ApiResponse.Title tit : titles){
+                if(tit.getType() == "default"){
+                    title = tit.getTitle();
+                    break;
+                }else{
+                    title = tit.getTitle();
+                }
+            }
+
+            informacja += title+" , ";
         }
-        Alert alert = new Alert("Informacja", "Wprowadzony tekst to : "+informacja);
+        Alert alert = new Alert("Znaleziono", "Znaleziono seriale : "+informacja);
         alert.Show(this);
 
     }

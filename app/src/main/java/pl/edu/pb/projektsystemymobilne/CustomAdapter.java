@@ -13,14 +13,16 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     private Context context;
-    private ArrayList anime_main_id, anime_id, anime_name, anime_score;
+    private ArrayList anime_main_id, anime_id, anime_name, anime_score, cordX, cordY;
 
-    CustomAdapter(Context context, ArrayList anime_main_id, ArrayList anime_id, ArrayList anime_name, ArrayList anime_score){
+    CustomAdapter(Context context, ArrayList anime_main_id, ArrayList anime_id, ArrayList anime_name, ArrayList anime_score, ArrayList cordX, ArrayList cordY){
         this.context = context;
         this.anime_main_id = anime_main_id;
         this.anime_id = anime_id;
         this.anime_name = anime_name;
         this.anime_score = anime_score;
+        this.cordX = cordX;
+        this.cordY = cordY;
     }
 
     @NonNull
@@ -37,6 +39,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.anime_id_txt.setText(String.valueOf(anime_id.get(position)));
         holder.anime_name_txt.setText(String.valueOf(anime_name.get(position)));
         holder.anime_score_txt.setText(String.valueOf(anime_score.get(position)));
+        holder.cordX_txt.setText(String.valueOf(cordX.get(position)));
+        holder.cordY_txt.setText(String.valueOf(cordY.get(position)));
     }
 
     @Override
@@ -46,7 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView anime_main_id_txt, anime_id_txt, anime_name_txt, anime_score_txt;
+        TextView anime_main_id_txt, anime_id_txt, anime_name_txt, anime_score_txt, cordX_txt, cordY_txt;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +58,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             anime_id_txt = itemView.findViewById(R.id.anime_id_txt);
             anime_name_txt = itemView.findViewById(R.id.anime_name_txt);
             anime_score_txt = itemView.findViewById(R.id.anime_score_txt);
+            cordX_txt = itemView.findViewById(R.id.cordX_txt);
+            cordY_txt = itemView.findViewById(R.id.cordY_txt);
         }
     }
 }

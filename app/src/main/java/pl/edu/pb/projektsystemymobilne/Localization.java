@@ -96,17 +96,6 @@ public class Localization extends AppCompatActivity {
         });
     }
 
-//    private void gotoAddAnime(){
-//        //Zmienianie widoku do User Profile
-//        Button nextbutton = (Button) findViewById(R.id.gotoAddAnimeButton);
-//        nextbutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(Localization.this, AddAdnime.class));
-//            }
-//        });
-//    }
-
     private void turnOnGPS() {
 
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()

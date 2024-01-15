@@ -8,7 +8,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:background="@color/white"
+        android:layout_marginBottom="2dp"
+        >
 
         <TextView
             android:id="@+id/anime_main_id_txt"
@@ -69,5 +72,30 @@
             app:layout_constraintEnd_toStartOf="@+id/anime_score_txt"
             app:layout_constraintTop_toTopOf="@+id/anime_score_txt"
             app:layout_constraintVertical_bias="0.523" />
+
+        <TextView
+            android:id="@+id/cordX_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="X"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/anime_name_txt"
+            app:layout_constraintTop_toTopOf="@+id/anime_name_txt" />
+
+        <TextView
+            android:id="@+id/cordY_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Y"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/anime_id_txt"
+            app:layout_constraintStart_toEndOf="@+id/anime_name_txt"
+            app:layout_constraintTop_toBottomOf="@+id/cordX_txt" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

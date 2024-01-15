@@ -51,13 +51,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addAnime(int id, String name, int score){
+    void addAnime(int id, String name, int score, double cordX, double cordY){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_ANIME_ID, id);
         cv.put(COLUMN_ANIME_NAME, name);
         cv.put(COLUMN_SCORE, score);
+        cv.put(COLUMN_LOCALIZATION_X, cordX);
+        cv.put(COLUMN_LOCALIZATION_Y, cordY);
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1){
             Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();

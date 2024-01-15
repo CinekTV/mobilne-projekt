@@ -20,7 +20,7 @@ public class UserProfile extends AppCompatActivity {
     FloatingActionButton add_button;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> main_id, anime_id, anime_name, anime_score;
+    ArrayList<String> main_id, anime_id, anime_name, anime_score, cordX, cordY;
     CustomAdapter customAdapter;
 
     @Override
@@ -43,10 +43,12 @@ public class UserProfile extends AppCompatActivity {
         anime_id = new ArrayList<>();
         anime_name = new ArrayList<>();
         anime_score = new ArrayList<>();
+        cordX = new ArrayList<>();
+        cordY = new ArrayList<>();
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(UserProfile.this, main_id, anime_id, anime_name, anime_score);
+        customAdapter = new CustomAdapter(UserProfile.this, main_id, anime_id, anime_name, anime_score, cordX, cordY);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager( UserProfile.this));
     }
@@ -60,6 +62,8 @@ public class UserProfile extends AppCompatActivity {
                 main_id.add(cursor.getString(0));
                 anime_name.add(cursor.getString(1));
                 anime_id.add(cursor.getString(2));
+                cordX.add(cursor.getString(5));
+                cordY.add(cursor.getString(6));
                 anime_score.add(cursor.getString(7));
             }
         }

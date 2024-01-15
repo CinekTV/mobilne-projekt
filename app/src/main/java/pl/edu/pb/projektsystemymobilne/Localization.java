@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
@@ -79,7 +80,32 @@ public class Localization extends AppCompatActivity {
                 }
             }
         });
+        gotoUser();
+//        gotoAddAnime();
     }
+
+
+    private void gotoUser(){
+        //Zmienianie widoku do User Profile
+        Button nextbutton = (Button) findViewById(R.id.gotoUserProfileButton);
+        nextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Localization.this, UserProfile.class));
+            }
+        });
+    }
+
+//    private void gotoAddAnime(){
+//        //Zmienianie widoku do User Profile
+//        Button nextbutton = (Button) findViewById(R.id.gotoAddAnimeButton);
+//        nextbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Localization.this, AddAdnime.class));
+//            }
+//        });
+//    }
 
     private void turnOnGPS() {
 

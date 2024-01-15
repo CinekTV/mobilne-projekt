@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureNextButton(){
+        //Zmienianie widoku
         Button nextbutton = (Button) findViewById(R.id.changeview);
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override

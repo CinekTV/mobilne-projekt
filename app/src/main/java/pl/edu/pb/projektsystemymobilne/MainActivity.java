@@ -13,7 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements ApiRequestTask.ApiRequestListener {
 
 
     /**
@@ -54,20 +57,29 @@ public class MainActivity extends AppCompatActivity {
         String enteredText = searchEditText.getText().toString();
         searchEditText.getText().clear(); // Wyczyść tekst w polu EditText
 
-        // Przygotuj alert
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Wprowadzony tekst");
-        builder.setMessage("Wprowadzony tekst: " + enteredText);
-        builder.setPositiveButton("OK", (dialog, which) -> {
-            // Tutaj możesz dodać kod, który zostanie wykonany po naciśnięciu przycisku OK
-            dialog.dismiss(); // Zamknięcie okna dialogowego
-        });
+        new ApiRequestTask(this).execute(enteredText);
 
-        // Wyświetl alert
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
 
+    @Override
+    public void onApiRequestSuccess(ApiResponse result) {
+        // Obsługa sukcesu
+        // Możesz korzystać z danych z result.getData()
+        String informacja = " ";
+        List<ApiResponse.Anime> animeList = result.getData();
+        for (ApiResponse.Anime anime : animeList) {
+            int malId = anime.getMalId();
+            informacja += malId+" , ";
+        }
+        Alert alert = new Alert("Informacja", "Wprowadzony tekst to : "+informacja);
+        alert.Show(this);
 
+    }
+
+    @Override
+    public void onApiRequestFailure() {
+        Alert alert = new Alert("Error", "Nie udało się wykonać zapytania");
+        alert.Show(this);
+    }
 
 }

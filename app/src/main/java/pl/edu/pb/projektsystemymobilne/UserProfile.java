@@ -1,6 +1,7 @@
 package pl.edu.pb.projektsystemymobilne;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ApiException;
@@ -41,6 +44,9 @@ public class UserProfile extends AppCompatActivity {
 
     double latitude, longitude;
 
+    ImageView empty_image;
+    TextView empty_text;
+
     MyDatabaseHelper myDB;
     ArrayList<String> main_id, anime_id, anime_name, anime_score, cordX, cordY;
     CustomAdapter customAdapter;
@@ -54,6 +60,8 @@ public class UserProfile extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycleView);
         add_button = findViewById(R.id.add_button);
+        empty_image = findViewById(R.id.empty_image);
+        empty_text = findViewById(R.id.empty_text);
 
 
         locationRequest = LocationRequest.create();
@@ -116,15 +124,24 @@ public class UserProfile extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(UserProfile.this, main_id, anime_id, anime_name, anime_score, cordX, cordY);
+        customAdapter = new CustomAdapter(UserProfile.this, this,main_id, anime_id, anime_name, anime_score, cordX, cordY);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager( UserProfile.this));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
     }
 
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();
         if (cursor.getCount() == 0){
-            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+            empty_text.setVisibility(View.VISIBLE);
+            empty_image.setVisibility(View.VISIBLE);
         }else {
             while (cursor.moveToNext()){
                 main_id.add(cursor.getString(0));
@@ -134,6 +151,8 @@ public class UserProfile extends AppCompatActivity {
                 cordY.add(cursor.getString(6));
                 anime_score.add(cursor.getString(7));
             }
+            empty_text.setVisibility(View.GONE);
+            empty_image.setVisibility(View.GONE);
         }
     }
     private void turnOnGPS() {

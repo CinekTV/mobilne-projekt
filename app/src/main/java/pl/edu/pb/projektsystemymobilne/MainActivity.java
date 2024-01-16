@@ -2,6 +2,8 @@ package pl.edu.pb.projektsystemymobilne;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,12 +15,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.Api;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ApiRequestTask.ApiRequestListener {
 
-
+    private AnimeAdapter animeAdapter;
+    private RecyclerView recyclerView;
     /**
      * @brief Akcja sprawdza czy został wprowadzony tekst do wyszukiwarki
      * @return Zwraca odpowiedź w postaci alertu który zawiera dane o tym co zostało wpisane
@@ -64,27 +69,13 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
 
     @Override
     public void onApiRequestSuccess(ApiResponse result) {
-        // Obsługa sukcesu
-        // Możesz korzystać z danych z result.getData()
-        String informacja = " ";
         List<ApiResponse.Anime> animeList = result.getData();
-        for (ApiResponse.Anime anime : animeList) {
-            int malId = anime.getMalId();
-            List<ApiResponse.Title> titles = anime.getTitles();
-            String title = "";
-            for(ApiResponse.Title tit : titles){
-                if(tit.getType() == "default"){
-                    title = tit.getTitle();
-                    break;
-                }else{
-                    title = tit.getTitle();
-                }
-            }
 
-            informacja += title+" , ";
-        }
-        Alert alert = new Alert("Znaleziono", "Znaleziono seriale : "+informacja);
-        alert.Show(this);
+        animeAdapter = new AnimeAdapter(this);
+        animeAdapter.setAnimeList(animeList);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(animeAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

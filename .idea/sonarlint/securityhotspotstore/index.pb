@@ -28,15 +28,5 @@ A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 v
 Fapp/src/test/java/pl/edu/pb/projektsystemymobilne/ExampleUnitTest.java,5\6\56e3cb87b7d7026be58e1cdf8f0e9467f6cc4842
-l
-<app/src/main/java/pl/edu/pb/projektsystemymobilne/Alert.java,7\9\792ed7ca2c6b8a6c2271d805d03e84ae1498c7ed
-s
-Capp/src/main/java/pl/edu/pb/projektsystemymobilne/ApiInterface.java,a\9\a9e38f27d5c4671bbddc9f97633a5a0a8fd84c06
-u
-Eapp/src/main/java/pl/edu/pb/projektsystemymobilne/ApiRequestTask.java,e\a\ea31afbd3f576b22f93fc7ebc2e9def221455508
-r
-Bapp/src/main/java/pl/edu/pb/projektsystemymobilne/AnimeSearch.java,f\9\f9336e0866a81f6f565d3b95e021b7f8c05e9327
-r
-Bapp/src/main/java/pl/edu/pb/projektsystemymobilne/ApiResponse.java,9\c\9c4ced0fa5a8401a4e6c2755a9f026325effc220
-s
-Capp/src/main/java/pl/edu/pb/projektsystemymobilne/Localization.java,4\e\4e5e169964fdb2744f09a95cd531d171eedec1cf
+p
+@app/src/main/java/pl/edu/pb/projektsystemymobilne/AddAdnime.java,0\f\0fd44f0cc63e07e6e10720adfbf6fa4c67f45f64

@@ -20,13 +20,24 @@ public class AddAdnime extends AppCompatActivity {
         name_input = findViewById(R.id.animeName_text);
         score_input = findViewById(R.id.score_text);
         add_button = findViewById(R.id.add_button);
+
+        Bundle b = getIntent().getExtras();
+        double X = b.getDouble("X");
+        double Y = b.getDouble("Y");
+//        if(b != null){
+//            X = b.getDouble("X");
+//            Y = b.getDouble("Y");
+//        }
+
+
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(AddAdnime.this);
                 myDB.addAnime(Integer.valueOf(id_input.getText().toString().trim()),
                         name_input.getText().toString().trim(),
-                        Integer.valueOf(score_input.getText().toString().trim())
+                        Integer.valueOf(score_input.getText().toString().trim()),
+                        X,Y
                 );
             }
         });

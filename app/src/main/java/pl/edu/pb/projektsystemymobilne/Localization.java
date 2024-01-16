@@ -66,7 +66,7 @@ public class Localization extends AppCompatActivity {
                                                 int index = locationResult.getLocations().size() - 1;
                                                 double latitude = locationResult.getLocations().get(index).getLatitude();
                                                 double longitude = locationResult.getLocations().get(index).getLongitude();
-                                                AddressText.setText("Latitude: "+latitude+"\n" + "Longitude: " + longitude);
+                                                //AddressText.setText("Latitude: "+latitude+"\n" + "Longitude: " + longitude);
                                             }
                                         }
                                     }, Looper.getMainLooper());
@@ -81,7 +81,6 @@ public class Localization extends AppCompatActivity {
             }
         });
         gotoUser();
-//        gotoAddAnime();
     }
 
 
@@ -95,17 +94,6 @@ public class Localization extends AppCompatActivity {
             }
         });
     }
-
-//    private void gotoAddAnime(){
-//        //Zmienianie widoku do User Profile
-//        Button nextbutton = (Button) findViewById(R.id.gotoAddAnimeButton);
-//        nextbutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(Localization.this, AddAdnime.class));
-//            }
-//        });
-//    }
 
     private void turnOnGPS() {
 

@@ -2,6 +2,7 @@ package pl.edu.pb.projektsystemymobilne;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +40,8 @@ public class AddAdnime extends AppCompatActivity {
                         Integer.valueOf(score_input.getText().toString().trim()),
                         X,Y
                 );
+                Intent intent = new Intent(AddAdnime.this, UserProfile.class);
+                startActivity(intent);
             }
         });
     }

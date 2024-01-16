@@ -1,9 +1,12 @@
 package pl.edu.pb.projektsystemymobilne;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,9 +16,11 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     private Context context;
+    Activity activity;
     private ArrayList anime_main_id, anime_id, anime_name, anime_score, cordX, cordY;
 
-    CustomAdapter(Context context, ArrayList anime_main_id, ArrayList anime_id, ArrayList anime_name, ArrayList anime_score, ArrayList cordX, ArrayList cordY){
+    CustomAdapter(Activity activity, Context context, ArrayList anime_main_id, ArrayList anime_id, ArrayList anime_name, ArrayList anime_score, ArrayList cordX, ArrayList cordY){
+        this.activity = activity;
         this.context = context;
         this.anime_main_id = anime_main_id;
         this.anime_id = anime_id;
@@ -41,6 +46,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.anime_score_txt.setText(String.valueOf(anime_score.get(position)));
         holder.cordX_txt.setText(String.valueOf(cordX.get(position)));
         holder.cordY_txt.setText(String.valueOf(cordY.get(position)));
+
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UpdateActivity.class);
+                intent.putExtra("mainID", String.valueOf(anime_main_id.get(position)));
+                intent.putExtra("id", String.valueOf(anime_id.get(position)));
+                intent.putExtra("name", String.valueOf(anime_name.get(position)));
+                intent.putExtra("score", String.valueOf(anime_score.get(position)));
+                activity.startActivityForResult(intent, 1);
+            }
+        });
     }
 
     @Override
@@ -51,6 +68,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView anime_main_id_txt, anime_id_txt, anime_name_txt, anime_score_txt, cordX_txt, cordY_txt;
+        LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +78,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             anime_score_txt = itemView.findViewById(R.id.anime_score_txt);
             cordX_txt = itemView.findViewById(R.id.cordX_txt);
             cordY_txt = itemView.findViewById(R.id.cordY_txt);
+
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }

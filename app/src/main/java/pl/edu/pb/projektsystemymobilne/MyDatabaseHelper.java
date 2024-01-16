@@ -25,7 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SCORE = "score";
     private static final String COLUMN_STATUS = "status";
 
-    public MyDatabaseHelper(@Nullable Context context) {
+    MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -76,5 +76,29 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    void updateData(String row_id, String id, String name, String score){
+        SQLiteDatabase db = this. getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_ANIME_ID, id);
+        cv.put(COLUMN_ANIME_NAME, name);
+        cv.put(COLUMN_SCORE, score);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if (result == -1){
+            Toast.makeText(context, "Failed to Update.", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Update Successfully!", Toast.LENGTH_SHORT).show();
+        }
+    }
+    void deleteOneRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if (result == -1){
+                Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Deleted.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

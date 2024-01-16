@@ -17,18 +17,22 @@
         android:theme="@style/Theme.Projektsystemymobilne"
         tools:targetApi="31">
         <activity
-            android:parentActivityName=".Localization"
+            android:parentActivityName=".UserProfile"
+            android:name=".UpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserProfile"
+            android:exported="false"
             android:label="Test"
-            android:exported="false" />
+            android:parentActivityName=".Localization" />
         <activity
-            android:parentActivityName=".Localization"
             android:name=".AddAdnime"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Localization" />
         <activity
-            android:parentActivityName=".MainActivity"
             android:name=".Localization"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

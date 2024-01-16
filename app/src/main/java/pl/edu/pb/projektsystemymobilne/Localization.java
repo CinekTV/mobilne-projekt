@@ -66,7 +66,7 @@ public class Localization extends AppCompatActivity {
                                                 int index = locationResult.getLocations().size() - 1;
                                                 double latitude = locationResult.getLocations().get(index).getLatitude();
                                                 double longitude = locationResult.getLocations().get(index).getLongitude();
-                                                AddressText.setText("Latitude: "+latitude+"\n" + "Longitude: " + longitude);
+                                                //AddressText.setText("Latitude: "+latitude+"\n" + "Longitude: " + longitude);
                                             }
                                         }
                                     }, Looper.getMainLooper());
@@ -81,7 +81,6 @@ public class Localization extends AppCompatActivity {
             }
         });
         gotoUser();
-//        gotoAddAnime();
     }
 
 

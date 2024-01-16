@@ -1,0 +1,9 @@
+
+E
+java:S1604"(Make this anonymous inner class a lambda(í„½É8Ä°ûŠÑ1
+h	java:S116"SRename this field "id_input" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÂ„
+j	java:S116"URename this field "name_input" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÂ„
+k	java:S116"VRename this field "score_input" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÂ„
+j	java:S116"URename this field "add_button" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰µÙ£
+]
+java:S1659"GDeclare "name_input" and all following declarations on a separate line.(ªÂ„

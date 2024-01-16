@@ -9,35 +9,50 @@
         android:background="@drawable/background_gradient">
 
         <RelativeLayout
+            android:id="@+id/AnimeImageLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp">
 
             <ImageView
                 android:id="@+id/AnimeImage"
-                android:layout_width="130px"
-                android:layout_height="180px"
-                android:layout_centerInParent="true" />
+                android:layout_width="130dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true" />
 
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/AnimeImageLayout"
+            android:layout_marginTop="10dp">
             <TextView
                 android:id="@+id/TitleOfAnime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/AnimeImage"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/DetailsOfAnime"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TitleOfAnime"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:textSize="16sp" />
-
+                android:layout_height="match_parent"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:layout_marginTop="60dp">
+                <TextView
+                    android:id="@+id/DetailsOfAnime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/TitleOfAnime"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="16sp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"/>
+            </ScrollView>
         </RelativeLayout>
+
 
     </RelativeLayout>
 

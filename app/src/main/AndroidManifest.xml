@@ -33,6 +33,9 @@
             android:name=".Localization"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".AnimeDetails"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

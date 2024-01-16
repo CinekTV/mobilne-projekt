@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 public class AnimeDetails extends AppCompatActivity {
 
     private ImageView animeImage;
@@ -25,12 +27,16 @@ public class AnimeDetails extends AppCompatActivity {
         // Pobierz dane z Intentu
         Intent intent = getIntent();
         if (intent != null) {
-            int imageResId = intent.getIntExtra("imageResId", R.drawable.default_image); // Zdjęcie domyślne, jeśli nie ma wartości
+            String imageUrl = intent.getStringExtra("imageUrl");
             String title = intent.getStringExtra("title");
             String details = intent.getStringExtra("details");
 
-            // Ustaw dane w widoku
-            animeImage.setImageResource(imageResId);
+            // Ustaw dane w widoku za pomocą Glide
+            Glide.with(this)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.baseline_gpp_maybe_24) // Zdjęcie domyślne, jeśli nie ma wartości
+                    .into(animeImage);
+
             titleOfAnime.setText(title);
             detailsOfAnime.setText(details);
         }

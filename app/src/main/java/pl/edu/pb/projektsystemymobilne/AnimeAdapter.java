@@ -26,6 +26,9 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder> 
         this.animeList = animeList;
     }
 
+    public List<ApiResponse.Anime> getAnimeList(){
+        return this.animeList;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

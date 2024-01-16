@@ -1,5 +1,6 @@
 package pl.edu.pb.projektsystemymobilne;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -19,11 +22,15 @@ import com.google.android.gms.common.api.Api;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener;
+
 
 public class MainActivity extends AppCompatActivity implements ApiRequestTask.ApiRequestListener {
 
     private AnimeAdapter animeAdapter;
     private RecyclerView recyclerView;
+    private GestureDetector gestureDetector;
     /**
      * @brief Akcja sprawdza czy został wprowadzony tekst do wyszukiwarki
      * @return Zwraca odpowiedź w postaci alertu który zawiera dane o tym co zostało wpisane
@@ -77,7 +84,43 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
         recyclerView.setAdapter(animeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+        });
+
+        // Dodaj obsługę kliknięcia w RecyclerView
+        recyclerView.addOnItemTouchListener(new SimpleOnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+
+                if (child != null && gestureDetector.onTouchEvent(e)) {
+                    int position = rv.getChildAdapterPosition(child);
+
+                    if (position != RecyclerView.NO_POSITION) {
+                        // Przekazanie danych do AnimeDetailsActivity po kliknięciu
+                        ApiResponse.Anime clickedAnime = animeAdapter.getAnimeList().get(position);
+                        Intent intent = new Intent(MainActivity.this, AnimeDetails.class);
+                        intent.putExtra("imageUrl", clickedAnime.getImages().getJpg().getImageUrl());
+                        intent.putExtra("title", clickedAnime.getTitles().get(0).getTitle());
+                        intent.putExtra("details", clickedAnime.getOpis());
+                        startActivity(intent);
+
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        });
+
+
     }
+
+
 
     @Override
     public void onApiRequestFailure() {

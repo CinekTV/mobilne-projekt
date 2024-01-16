@@ -30,6 +30,9 @@ public class ApiResponse {
         @SerializedName("images")
         private Images images;
 
+        @SerializedName("synopsis")
+        private String opis;
+
         // Getter dla malId
         public int getMalId() {
             return malId;
@@ -44,6 +47,8 @@ public class ApiResponse {
         public Images getImages() {
             return images;
         }
+
+        public String getOpis(){return opis;}
     }
 
     public static class Title {

@@ -1,0 +1,6 @@
+
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Àà8ä˜ÇóÐ1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Ëõ†ÿÿÿÿÿ8ä˜ÇóÐ1
+o	java:S116"TRename this field "image_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¾ål8è˜ÇóÐ1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Ý»½8ì˜ÇóÐ1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Ëõ†ÿÿÿÿÿ8ì˜ÇóÐ1

@@ -33,22 +33,43 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
                 android:textSize="24sp" />
+            <Button
+                android:id="@+id/addToWatched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TitleOfAnime"
+                android:layout_centerHorizontal="true"
+                android:text="Dodaj do obejrzanych"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/opisTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addToWatched"
+                android:layout_centerHorizontal="false"
+                android:textSize="18sp"
+                android:paddingLeft="50dp"
+                android:paddingTop="30dp"
+                android:text="Opis serialu:" />
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
-                android:layout_marginTop="60dp">
+                android:layout_marginTop="200dp">
+
                 <TextView
                     android:id="@+id/DetailsOfAnime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/TitleOfAnime"
+                    android:layout_below="@id/opisTitle"
                     android:layout_centerHorizontal="true"
                     android:textSize="16sp"
-                    android:paddingTop="30dp"
+                    android:paddingTop="0dp"
                     android:paddingBottom="30dp"/>
             </ScrollView>
         </RelativeLayout>

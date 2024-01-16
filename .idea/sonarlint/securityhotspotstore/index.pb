@@ -28,3 +28,5 @@ A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 v
 Fapp/src/test/java/pl/edu/pb/projektsystemymobilne/ExampleUnitTest.java,5\6\56e3cb87b7d7026be58e1cdf8f0e9467f6cc4842
+p
+@app/src/main/java/pl/edu/pb/projektsystemymobilne/AddAdnime.java,0\f\0fd44f0cc63e07e6e10720adfbf6fa4c67f45f64

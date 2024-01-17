@@ -97,11 +97,13 @@
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="10dp">
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/btn_hamburger"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:background="#272727"  />
+                    android:background="#272727"
+                    android:onClick="onHamburgerClick"/>
 
                 <ImageView
                     android:layout_width="35dp"
@@ -109,13 +111,37 @@
                     android:layout_marginTop="2.5dp"
                     android:layout_marginLeft="2.5dp"
                     android:src="@drawable/hamburger"
+                    android:onClick="onHamburgerClick"
                     />
 
             </androidx.cardview.widget.CardView>
 
 
-
         </RelativeLayout>
+
     </RelativeLayout>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Main Content -->
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- Navigation Drawer -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:menu="@menu/drawer_menu"/>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,35 +1,37 @@
 package pl.edu.pb.projektsystemymobilne;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
-import android.view.KeyEvent;
+
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
-import com.google.android.gms.common.api.Api;
-
-import java.util.ArrayList;
 import java.util.List;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener;
 
+import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener;
 
 public class MainActivity extends AppCompatActivity implements ApiRequestTask.ApiRequestListener {
 
     private AnimeAdapter animeAdapter;
     private RecyclerView recyclerView;
+
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
     private GestureDetector gestureDetector;
     /**
      * @brief Akcja sprawdza czy został wprowadzony tekst do wyszukiwarki
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
             return false;
         });
         configureNextButton();
+
     }
 
     private void configureNextButton(){
@@ -65,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
             }
         });
     }
+
+
 
     private void handleTextSubmission() {
         String enteredText = searchEditText.getText().toString();
@@ -120,13 +125,12 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
 
 
     }
-
-
-
     @Override
     public void onApiRequestFailure() {
         Alert alert = new Alert("Error", "Nie udało się wykonać zapytania");
         alert.Show(this);
     }
+
+
 
 }

@@ -1,13 +1,9 @@
 
 J
-java:S16041"(Make this anonymous inner class a lambda(½çúÿÿÿÿ8Œ‡ ÷Ğ1
-9
-java:S1643T"Use a StringBuilder instead.(¼Å°»8Çë—÷Ğ1
-Y
-java:S4973L"<Strings and Boxed types should be compared using "equals()".(«Úè‘8Ğ“”÷Ğ1
+java:S1604="(Make this anonymous inner class a lambda(½çúÿÿÿÿ8´™öŸÑ1
+}
+java:S1450 "[Remove the "recyclerView" field and declare it as a local variable in the relevant methods.(¿á© ıÿÿÿÿ8ú™öŸÑ1
 L
-java:S1874="/Remove this use of "execute"; it is deprecated.(ˆÖÁ8á‡ ÷Ğ1
-[
-java:S1854H"9Remove this useless assignment to local variable "malId".(çØĞÖøÿÿÿÿ8ó””÷Ğ1
-L
-java:S1481H"*Remove this unused "malId" local variable.(çØĞÖøÿÿÿÿ8ó””÷Ğ1
+java:S1874I"/Remove this use of "execute"; it is deprecated.(ˆÖÁ8‹šöŸÑ1
+@
+java:S1128"Remove this duplicated import.(Îèòçøÿÿÿÿ8“šöŸÑ1

@@ -46,21 +46,31 @@
                 android:text="Dodaj do obejrzanych"
                 android:layout_marginTop="20dp"/>
             <TextView
-                android:id="@+id/opisTitle"
+                android:id="@+id/allEpisodes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/addToWatched"
+                android:layout_centerHorizontal="false"
+                android:textSize="16sp"
+                android:paddingLeft="50dp"
+                android:paddingTop="30dp"/>
+            <TextView
+                android:id="@+id/opisTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/allEpisodes"
                 android:layout_centerHorizontal="false"
                 android:textSize="18sp"
                 android:paddingLeft="50dp"
                 android:paddingTop="30dp"
                 android:text="Opis serialu:" />
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
-                android:layout_marginTop="200dp">
+                android:layout_marginTop="250dp">
 
                 <TextView
                     android:id="@+id/DetailsOfAnime"

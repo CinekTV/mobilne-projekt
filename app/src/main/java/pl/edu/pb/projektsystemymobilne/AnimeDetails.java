@@ -15,6 +15,8 @@ public class AnimeDetails extends AppCompatActivity {
     private TextView titleOfAnime;
     private TextView detailsOfAnime;
 
+    private TextView allEpisodes;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class AnimeDetails extends AppCompatActivity {
         animeImage = findViewById(R.id.AnimeImage);
         titleOfAnime = findViewById(R.id.TitleOfAnime);
         detailsOfAnime = findViewById(R.id.DetailsOfAnime);
+        allEpisodes = findViewById(R.id.allEpisodes);
 
         // Pobierz dane z Intentu
         Intent intent = getIntent();
@@ -30,6 +33,7 @@ public class AnimeDetails extends AppCompatActivity {
             String imageUrl = intent.getStringExtra("imageUrl");
             String title = intent.getStringExtra("title");
             String details = intent.getStringExtra("details");
+            int episodes = intent.getIntExtra("episodes",1);
 
             // Ustaw dane w widoku za pomocą Glide
             Glide.with(this)
@@ -39,6 +43,7 @@ public class AnimeDetails extends AppCompatActivity {
 
             titleOfAnime.setText(title);
             detailsOfAnime.setText(details);
+            allEpisodes.setText("Liczba odcinków : "+episodes);
         }
     }
 }

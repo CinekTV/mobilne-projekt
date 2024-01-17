@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
                         intent.putExtra("imageUrl", clickedAnime.getImages().getJpg().getImageUrl());
                         intent.putExtra("title", clickedAnime.getTitles().get(0).getTitle());
                         intent.putExtra("details", clickedAnime.getOpis());
+                        intent.putExtra("episodes", clickedAnime.getEpisodes());
                         startActivity(intent);
 
                         return true;

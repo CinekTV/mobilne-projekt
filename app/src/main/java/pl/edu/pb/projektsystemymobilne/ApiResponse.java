@@ -33,6 +33,9 @@ public class ApiResponse {
         @SerializedName("synopsis")
         private String opis;
 
+        @SerializedName("episodes")
+        private int episodes;
+
         // Getter dla malId
         public int getMalId() {
             return malId;
@@ -49,6 +52,8 @@ public class ApiResponse {
         }
 
         public String getOpis(){return opis;}
+
+        public int getEpisodes(){return episodes;}
     }
 
     public static class Title {

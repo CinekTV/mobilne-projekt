@@ -24,11 +24,11 @@
             android:name=".UserProfile"
             android:exported="false"
             android:label="Test"
-            android:parentActivityName=".Localization" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddAdnime"
             android:exported="false"
-            android:parentActivityName=".Localization" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Localization"
             android:exported="false"

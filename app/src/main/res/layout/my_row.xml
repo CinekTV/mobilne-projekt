@@ -101,17 +101,18 @@
             android:visibility="gone"/>
 
         <TextView
-            android:id="@+id/max_episodes"
+            android:id="@+id/max_episodes_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="48dp"
             android:text="12"
             android:textColor="#000"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.428" />
 
         <TextView
             android:id="@+id/textView2"
@@ -122,11 +123,11 @@
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/max_episodes"
+            app:layout_constraintEnd_toStartOf="@+id/max_episodes_row"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/watched_episodes"
+            android:id="@+id/watched_episodes_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"

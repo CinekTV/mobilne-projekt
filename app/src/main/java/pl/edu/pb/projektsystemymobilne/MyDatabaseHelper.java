@@ -51,7 +51,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addAnime(int id, String name, int score, double cordX, double cordY){
+    void addAnime(int id, String name, int score, double cordX, double cordY, int episodesMax, int episodesCurr){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -60,6 +60,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_SCORE, score);
         cv.put(COLUMN_LOCALIZATION_X, cordX);
         cv.put(COLUMN_LOCALIZATION_Y, cordY);
+        cv.put(COLUMN_EPISODES_MAX, episodesMax);
+        cv.put(COLUMN_EPISODES_WATCHED, episodesCurr);
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1){
             Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
@@ -78,12 +80,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String name, String score){
+    void updateData(String row_id, String name, String score, String X, String Y, String watched, String max){
         SQLiteDatabase db = this. getWritableDatabase();
         ContentValues cv = new ContentValues();
         //cv.put(COLUMN_ANIME_ID, id);
         cv.put(COLUMN_ANIME_NAME, name);
         cv.put(COLUMN_SCORE, score);
+        cv.put(COLUMN_LOCALIZATION_X, X);
+        cv.put(COLUMN_LOCALIZATION_Y, Y);
+        cv.put(COLUMN_EPISODES_WATCHED, watched);
+        cv.put(COLUMN_EPISODES_MAX, max);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1){

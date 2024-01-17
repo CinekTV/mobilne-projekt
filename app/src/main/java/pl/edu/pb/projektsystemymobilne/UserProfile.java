@@ -48,7 +48,7 @@ public class UserProfile extends AppCompatActivity {
     TextView empty_text;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> main_id, anime_id, anime_name, anime_score, cordX, cordY;
+    ArrayList<String> main_id, anime_id, anime_name, anime_score, cordX, cordY, episodes_watched, episodes_max;
     CustomAdapter customAdapter;
 
     private LocationRequest locationRequest;
@@ -121,10 +121,12 @@ public class UserProfile extends AppCompatActivity {
         anime_score = new ArrayList<>();
         cordX = new ArrayList<>();
         cordY = new ArrayList<>();
+        episodes_watched = new  ArrayList<>();
+        episodes_max = new ArrayList<>();
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(UserProfile.this, this,main_id, anime_id, anime_name, anime_score, cordX, cordY);
+        customAdapter = new CustomAdapter(UserProfile.this, this,main_id, anime_id, anime_name, anime_score, cordX, cordY, episodes_watched, episodes_max);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager( UserProfile.this));
     }
@@ -147,6 +149,8 @@ public class UserProfile extends AppCompatActivity {
                 main_id.add(cursor.getString(0));
                 anime_id.add(cursor.getString(1));
                 anime_name.add(cursor.getString(2));
+                episodes_max.add(cursor.getString(3));
+                episodes_watched.add(cursor.getString(4));
                 cordX.add(cursor.getString(5));
                 cordY.add(cursor.getString(6));
                 anime_score.add(cursor.getString(7));

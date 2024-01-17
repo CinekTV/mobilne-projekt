@@ -10,14 +10,16 @@ import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    EditText id_input, name_input, score_input;
+    EditText id_input, name_input, score_input, ep_input;
     Button update_button, delete_button;
 
-    String mainID, id, name, score;
+    String mainID, id, name, score, episodes_watched, episodes_max, cordX_txt, cordY_txt ;
+    TextView status, maxep, cordX, cordY, anime_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +29,19 @@ public class UpdateActivity extends AppCompatActivity {
         //id_input = findViewById(R.id.animeID_text2);
         name_input = findViewById(R.id.animeName_text2);
         score_input = findViewById(R.id.score_text2);
-        score_input.setFilters(new InputFilter[]{new MinMaxFilter("1", "10")});
+        maxep = findViewById(R.id.outOfEpisodes);
+        status = findViewById(R.id.anime_status);
+        cordX = findViewById(R.id.text_displayX_cord);
+        cordY = findViewById(R.id.text_displayY_cord);
+        anime_name = findViewById(R.id.animeName_display2);
+        ep_input = findViewById(R.id.watched_episodes2);
+        getAndSetIntentData();
+
+
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
-        getAndSetIntentData();
+        score_input.setFilters(new InputFilter[]{new MinMaxFilter("1", "10")});
 
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
@@ -41,9 +51,14 @@ public class UpdateActivity extends AppCompatActivity {
         update_button.setOnClickListener(v -> {
             MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
             //id = id_input.getText().toString().trim();
-            name =  name_input.getText().toString().trim();
+            name =  anime_name.getText().toString().trim();
             score = score_input.getText().toString().trim();
-            myDB.updateData(mainID, name, score);
+            cordX_txt = cordX.getText().toString().trim();
+            cordY_txt = cordY.getText().toString().trim();
+            episodes_watched = ep_input.getText().toString().trim();
+            episodes_max = maxep.getText().toString().trim();
+            myDB.updateData(mainID, name, score, cordX_txt, cordY_txt, episodes_watched, episodes_max);
+            finish();
         });
 
         delete_button.setOnClickListener(new View.OnClickListener() {
@@ -63,11 +78,28 @@ public class UpdateActivity extends AppCompatActivity {
             //id = getIntent().getStringExtra("id");
             name = getIntent().getStringExtra("name");
             score = getIntent().getStringExtra("score");
+            cordX_txt = getIntent().getStringExtra("X");
+            cordY_txt = getIntent().getStringExtra("Y");
+            episodes_max = getIntent().getStringExtra("episodesMax");
+            episodes_watched = getIntent().getStringExtra("episodesWat");
 
             //Setting Data
             //id_input.setText(id);
-            name_input.setText(name);
+            maxep.setText(episodes_max);
+            ep_input.setText(episodes_watched);
+            cordX.setText(cordX_txt);
+            cordY.setText(cordY_txt);
+            anime_name.setText(name);
             score_input.setText(score);
+
+            if (episodes_watched .equals(episodes_max)){
+                status.setText("Completed");
+            }else if (episodes_watched == "0"){
+                status.setText("Watchn't");
+            }else{
+                status.setText("Watching");
+            }
+
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }

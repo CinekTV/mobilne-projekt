@@ -14,7 +14,7 @@
         android:layout_marginTop="150dp"
         android:ems="10"
         android:hint="Anime ID"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Anime Name"
+        android:visibility="gone"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -40,11 +41,11 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Score"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animeName_text" />
+        app:layout_constraintTop_toBottomOf="@+id/animeID_text" />
 
     <Button
         android:id="@+id/add_button"
@@ -57,4 +58,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/score_text" />
+
+    <TextView
+        android:id="@+id/animeName_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Nazwa Anime"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

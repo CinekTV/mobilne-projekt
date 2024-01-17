@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="Anime ID"
         android:inputType="text"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +25,15 @@
         android:id="@+id/animeName_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
         android:hint="Anime Name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animeID_text2" />
+        app:layout_constraintTop_toBottomOf="@+id/animeID_text2"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/score_text2"
@@ -40,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Score"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"

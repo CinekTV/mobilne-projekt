@@ -41,7 +41,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.anime_main_id_txt.setText(String.valueOf(anime_main_id.get(position)));
-        holder.anime_id_txt.setText(String.valueOf(anime_id.get(position)));
+        //holder.anime_id_txt.setText(String.valueOf(anime_id.get(position)));
         holder.anime_name_txt.setText(String.valueOf(anime_name.get(position)));
         holder.anime_score_txt.setText(String.valueOf(anime_score.get(position)));
         holder.cordX_txt.setText(String.valueOf(cordX.get(position)));
@@ -52,7 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             public void onClick(View v) {
                 Intent intent = new Intent(context, UpdateActivity.class);
                 intent.putExtra("mainID", String.valueOf(anime_main_id.get(position)));
-                intent.putExtra("id", String.valueOf(anime_id.get(position)));
+                //intent.putExtra("id", String.valueOf(anime_id.get(position)));
                 intent.putExtra("name", String.valueOf(anime_name.get(position)));
                 intent.putExtra("score", String.valueOf(anime_score.get(position)));
                 activity.startActivityForResult(intent, 1);
@@ -73,7 +73,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             anime_main_id_txt = itemView.findViewById(R.id.anime_main_id_txt);
-            anime_id_txt = itemView.findViewById(R.id.anime_id_txt);
+            //anime_id_txt = itemView.findViewById(R.id.anime_id_txt);
             anime_name_txt = itemView.findViewById(R.id.anime_name_txt);
             anime_score_txt = itemView.findViewById(R.id.anime_score_txt);
             cordX_txt = itemView.findViewById(R.id.cordX_txt);

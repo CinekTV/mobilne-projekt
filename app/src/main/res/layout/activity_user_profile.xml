@@ -24,7 +24,8 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add" />
+        app:srcCompat="@drawable/baseline_add"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/empty_image"

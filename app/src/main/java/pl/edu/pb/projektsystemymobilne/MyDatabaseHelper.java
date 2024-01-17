@@ -55,7 +55,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_ANIME_ID, id);
+        //cv.put(COLUMN_ANIME_ID, id);
         cv.put(COLUMN_ANIME_NAME, name);
         cv.put(COLUMN_SCORE, score);
         cv.put(COLUMN_LOCALIZATION_X, cordX);
@@ -78,10 +78,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String id, String name, String score){
+    void updateData(String row_id, String name, String score){
         SQLiteDatabase db = this. getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_ANIME_ID, id);
+        //cv.put(COLUMN_ANIME_ID, id);
         cv.put(COLUMN_ANIME_NAME, name);
         cv.put(COLUMN_SCORE, score);
 

@@ -145,8 +145,8 @@ public class UserProfile extends AppCompatActivity {
         }else {
             while (cursor.moveToNext()){
                 main_id.add(cursor.getString(0));
-                anime_name.add(cursor.getString(1));
-                anime_id.add(cursor.getString(2));
+                anime_id.add(cursor.getString(1));
+                anime_name.add(cursor.getString(2));
                 cordX.add(cursor.getString(5));
                 cordY.add(cursor.getString(6));
                 anime_score.add(cursor.getString(7));

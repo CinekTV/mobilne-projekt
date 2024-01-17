@@ -1,6 +1,8 @@
 package pl.edu.pb.projektsystemymobilne;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ public class AnimeDetails extends AppCompatActivity {
     private ImageView animeImage;
     private TextView titleOfAnime;
     private TextView detailsOfAnime;
+    Button button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,6 +26,18 @@ public class AnimeDetails extends AppCompatActivity {
         animeImage = findViewById(R.id.AnimeImage);
         titleOfAnime = findViewById(R.id.TitleOfAnime);
         detailsOfAnime = findViewById(R.id.DetailsOfAnime);
+        button = findViewById(R.id.addToWatched);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnimeDetails.this, AddAdnime.class);
+                Bundle b = new Bundle();
+                b.putDouble("X",0.0);
+                b.putDouble("Y", 0.0);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
 
         // Pobierz dane z Intentu
         Intent intent = getIntent();

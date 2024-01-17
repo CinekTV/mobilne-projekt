@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,9 +24,10 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        id_input = findViewById(R.id.animeID_text2);
+        //id_input = findViewById(R.id.animeID_text2);
         name_input = findViewById(R.id.animeName_text2);
         score_input = findViewById(R.id.score_text2);
+        score_input.setFilters(new InputFilter[]{new MinMaxFilter("1", "10")});
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
@@ -38,10 +40,10 @@ public class UpdateActivity extends AppCompatActivity {
 
         update_button.setOnClickListener(v -> {
             MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
-            id = id_input.getText().toString().trim();
+            //id = id_input.getText().toString().trim();
             name =  name_input.getText().toString().trim();
             score = score_input.getText().toString().trim();
-            myDB.updateData(mainID, id, name, score);
+            myDB.updateData(mainID, name, score);
         });
 
         delete_button.setOnClickListener(new View.OnClickListener() {
@@ -53,16 +55,17 @@ public class UpdateActivity extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("mainID") && getIntent().hasExtra("id") &&
-                getIntent().hasExtra("name") && getIntent().hasExtra("score")){
+        if(getIntent().hasExtra("mainID") &&
+                getIntent().hasExtra("name") &&
+                getIntent().hasExtra("score")){
             //getting Data
             mainID = getIntent().getStringExtra("mainID");
-            id = getIntent().getStringExtra("id");
+            //id = getIntent().getStringExtra("id");
             name = getIntent().getStringExtra("name");
             score = getIntent().getStringExtra("score");
 
             //Setting Data
-            id_input.setText(id);
+            //id_input.setText(id);
             name_input.setText(name);
             score_input.setText(score);
         }else{

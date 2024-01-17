@@ -11,19 +11,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.GestureDetector;
 
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements ApiRequestTask.ApiRequestListener {
 
@@ -31,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
     private RecyclerView recyclerView;
 
     private DrawerLayout drawerLayout;
+
+    private boolean Navi;
+    private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private GestureDetector gestureDetector;
     /**
@@ -39,12 +48,17 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
      * @author Artur Leszczak
      */
     private EditText searchEditText;
+
+    private ImageView hamburgerImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.Navi = false;
+
         searchEditText = findViewById(R.id.Search_field);
+        hamburgerImage = findViewById(R.id.hamburgerIcon);
 
         searchEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -56,6 +70,42 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
         });
         configureNextButton();
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        lockDrawer();
+    }
+
+    public void onHamburgerClick(View view) {
+        // Obsługa kliknięcia w hamburger
+        if(this.Navi){
+            drawerLayout.closeDrawer(GravityCompat.END);
+            Drawable yourDrawable = VectorDrawableCompat.create(getResources(), R.drawable.hamburger, getTheme());
+            if (yourDrawable != null) {
+                hamburgerImage.setImageDrawable(yourDrawable);
+            }
+            lockDrawer();
+            Navi = false;
+        }else{
+            drawerLayout.openDrawer(GravityCompat.END);
+            Drawable yourDrawable = VectorDrawableCompat.create(getResources(), R.drawable.close, getTheme());
+            if (yourDrawable != null) {
+                hamburgerImage.setImageDrawable(yourDrawable);
+            }
+            unlockDrawer();
+            Navi = true;
+        }
+
+    }
+
+    // Metoda, która blokuje otwieranie Navigation Drawer
+    private void lockDrawer() {
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        drawerLayout.setVisibility(View.GONE);
+    }
+
+    // Metoda, która odblokowuje otwieranie Navigation Drawer
+    private void unlockDrawer() {
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        drawerLayout.setVisibility(View.VISIBLE);
     }
 
     private void configureNextButton(){

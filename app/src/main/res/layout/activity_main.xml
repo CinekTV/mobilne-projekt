@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
+
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -37,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
                     android:layout_centerInParent="true"
                     tools:ignore="MissingConstraints" />
             </RelativeLayout>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="250dp"
                 android:layout_height="40dp"
@@ -106,6 +110,7 @@
                     android:onClick="onHamburgerClick"/>
 
                 <ImageView
+                    android:id="@+id/hamburgerIcon"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="2.5dp"
@@ -117,6 +122,7 @@
             </androidx.cardview.widget.CardView>
 
 
+
         </RelativeLayout>
 
     </RelativeLayout>
@@ -126,22 +132,24 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="0dp">
 
-        <!-- Main Content -->
-        <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <!-- Main Content -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-        <!-- Navigation Drawer -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            app:menu="@menu/drawer_menu"/>
-    </androidx.drawerlayout.widget.DrawerLayout>
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        app:menu="@menu/drawer_menu"/>
+</androidx.drawerlayout.widget.DrawerLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

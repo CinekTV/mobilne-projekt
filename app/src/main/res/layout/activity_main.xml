@@ -30,8 +30,9 @@
             android:id="@+id/changeview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zmień"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:text="Zmień" />
 
 
     </RelativeLayout>

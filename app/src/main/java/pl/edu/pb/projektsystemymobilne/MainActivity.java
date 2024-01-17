@@ -68,10 +68,41 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
             }
             return false;
         });
-        configureNextButton();
+//        configureNextButton();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         lockDrawer();
+
+
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle navigation view item clicks here
+                int id = item.getItemId();
+
+                if (id == R.id.nav_option1) {
+                    Intent intent = getIntent();
+                    finish(); // Finish the current instance of the activity
+                    startActivity(intent); // Start a new instance of the activity
+                } else if (id == R.id.nav_option2) {
+                    startActivity(new Intent(MainActivity.this, UserProfile.class));
+                }else if (id == R.id.nav_option2) {
+                    drawerLayout.openDrawer(GravityCompat.END);
+                    Drawable yourDrawable = VectorDrawableCompat.create(getResources(), R.drawable.close, getTheme());
+                    if (yourDrawable != null) {
+                        hamburgerImage.setImageDrawable(yourDrawable);
+                    }
+                    unlockDrawer();
+                    Navi = true;
+                }
+                // Add more else if statements for other menu options
+
+                drawerLayout.closeDrawer(GravityCompat.END);
+                return true;
+            }
+        });
+
     }
 
     public void onHamburgerClick(View view) {
@@ -108,16 +139,16 @@ public class MainActivity extends AppCompatActivity implements ApiRequestTask.Ap
         drawerLayout.setVisibility(View.VISIBLE);
     }
 
-    private void configureNextButton(){
-        //Zmienianie widoku
-        Button nextbutton = (Button) findViewById(R.id.changeview);
-        nextbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, UserProfile.class));
-            }
-        });
-    }
+//    private void configureNextButton(){
+//        //Zmienianie widoku
+//        Button nextbutton = (Button) findViewById(R.id.changeview);
+//        nextbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, UserProfile.class));
+//            }
+//        });
+//    }
 
 
 

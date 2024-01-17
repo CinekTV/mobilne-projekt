@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:visibility="gone"
         android:ems="10"
         android:hint="Anime Name"
         android:inputType="text"
@@ -34,6 +35,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/animeID_text2"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/watched_episodes2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Watched"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <EditText
         android:id="@+id/score_text2"
@@ -46,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animeName_text2" />
+        app:layout_constraintTop_toBottomOf="@+id/watched_episodes2" />
 
     <Button
         android:id="@+id/update_button"
@@ -72,4 +84,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_button" />
+
+    <TextView
+        android:id="@+id/animeName_display2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Anime Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_displayX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="X:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animeName_display2" />
+
+    <TextView
+        android:id="@+id/text_displayY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Y:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_displayX" />
+
+    <TextView
+        android:id="@+id/text_displayX_cord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="longitude"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/text_displayX"
+        app:layout_constraintTop_toTopOf="@+id/text_displayX" />
+
+    <TextView
+        android:id="@+id/text_displayY_cord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="latitude"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/text_displayY"
+        app:layout_constraintTop_toTopOf="@+id/text_displayY" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wra"
+        android:text="Episodes watched:"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="149dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

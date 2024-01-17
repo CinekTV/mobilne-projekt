@@ -98,6 +98,11 @@ public class AnimeDetails extends AppCompatActivity {
                                                     b.putDouble("X",longitude);
                                                     b.putDouble("Y", latitude);
                                                     b.putString("title", intent.getStringExtra("title"));
+
+                                                    //Tutaj trzebe będzie dorzucić jeszcze takie zmienne:
+                                                    //Po prstu dodać ile odcinkó am to anime
+                                                    b.putInt("MAXep", 12); //
+
                                                     intent_new.putExtras(b);
                                                     startActivity(intent_new);
                                                 }

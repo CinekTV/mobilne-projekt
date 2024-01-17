@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class AddAdnime extends AppCompatActivity {
-    EditText id_input, name_input, score_input;
+    EditText id_input, name_input, score_input, watched_input;
     Button add_button;
     TextView anime_name;
 
@@ -24,7 +24,10 @@ public class AddAdnime extends AppCompatActivity {
         //name_input = findViewById(R.id.animeName_text);
         score_input = findViewById(R.id.score_text);
         anime_name = findViewById(R.id.animeName_display);
+        watched_input = findViewById(R.id.add_watched_episodes);
+        watched_input.setFilters(new InputFilter[]{new MinMaxFilter("0", "12")});
         score_input.setFilters(new InputFilter[]{new MinMaxFilter("1", "10")});
+
         add_button = findViewById(R.id.add_button);
 
         Bundle b = getIntent().getExtras();
@@ -43,7 +46,7 @@ public class AddAdnime extends AppCompatActivity {
             public void onClick(View v) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(AddAdnime.this);
                 myDB.addAnime(
-                        Integer.valueOf(id_input.getText().toString().trim()),
+                        0,
                         title,
                         Integer.valueOf(score_input.getText().toString().trim()),
                         X,

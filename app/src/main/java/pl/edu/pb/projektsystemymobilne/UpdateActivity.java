@@ -24,7 +24,7 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        id_input = findViewById(R.id.animeID_text2);
+        //id_input = findViewById(R.id.animeID_text2);
         name_input = findViewById(R.id.animeName_text2);
         score_input = findViewById(R.id.score_text2);
         score_input.setFilters(new InputFilter[]{new MinMaxFilter("1", "10")});
@@ -55,8 +55,9 @@ public class UpdateActivity extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("mainID") && getIntent().hasExtra("id") &&
-                getIntent().hasExtra("name") && getIntent().hasExtra("score")){
+        if(getIntent().hasExtra("mainID") &&
+                getIntent().hasExtra("name") &&
+                getIntent().hasExtra("score")){
             //getting Data
             mainID = getIntent().getStringExtra("mainID");
             //id = getIntent().getStringExtra("id");
